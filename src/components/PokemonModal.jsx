@@ -11,7 +11,7 @@ function PokemonModal({pokemon, onFechar}){
         </h2>
         <div className="sprites">
             <img src={pokemon.sprites.front_default} alt="frente" />
-            {pokemon.splites.back_default && (
+            {pokemon.sprites.back_default && (
             <img src={pokemon.sprites.back_default} alt="costa" />
 
             )}
