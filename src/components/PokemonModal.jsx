@@ -1,22 +1,25 @@
 function PokemonModal({pokemon, onFechar}){
     return(
         <div className="fundo" onClick={onFechar}>
-            <div className="modal" onClick={(e)=>e.stopPropagation}>
+            <div className="modal" onClick={(e)=>e.stopPropagation()}>
         <button className="fechar" onClick={onFechar}>
             x
         </button>
         <h2>
-            #{pokemon.id} {pokemon.nome}
+            #{pokemon.id} {pokemon.name}
 
         </h2>
         <div className="sprites">
             <img src={pokemon.sprites.front_default} alt="frente" />
-
+            {pokemon.splites.back_default && (
             <img src={pokemon.sprites.back_default} alt="costa" />
+
+            )}
+            
         </div>
 
-        <P> altura: {pokemon.height/10} m </P>
-        <p> peso: {pokemon.weight} kg </p>
+        <p> Altura: {pokemon.height/10} m </p>
+        <p> Peso: {pokemon.weight/10} kg </p>
 
         <h4> Habilidades </h4>
         <ul>

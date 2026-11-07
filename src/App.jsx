@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'; //hook:useState armazena e atualiza dados que podem mudar durante projeto.useEffect lida com possiveis efeitos colateraiis do projeto tb buscadados da net como a pokeap 
+import { useState, useEffect } from 'react'; //hook:useState armazena e atualiza dados que podem mudar durante projeto.useEffect lida com possiveis efeitos colaterais do projeto tb busca dados da net como a pokeap 
 import { API, buscarJson } from './api';
 import './App.css';
 import PokemonList from "./components/PokemonList";
@@ -62,7 +62,7 @@ function App() {
     <div className='app'>              
       
                 
-      <h1>pokedex</h1>
+      <h1>Pokedex</h1>
       {carregando && <p className='mensagem'>Carregando...</p>}
       {erro && (
         <div className='mensagem erro'> 
