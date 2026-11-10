@@ -4,6 +4,7 @@ import './App.css';
 import PokemonList from "./components/PokemonList";
 import Paginacao from './components/Paginacao';
 import PokemonModal from './components/PokemonModal';
+import BarraPesqisa from './components/BarraPesquisa';
 
 const por_pagina = 20; //quant de pókemon p/ pag (p/ mudar quant).
 
@@ -18,6 +19,8 @@ function App() {
   const [erro, setErro] = useState(""); // string vázia = sem erro.
   //Modal
   const [selecionado, setSelecionado] = useState(null); //Pokémon aberto no modal, null = nenhum
+  //Pesquisa
+  const [busca, setBusca] = useState(""); // texto digitado, "" = a sem filtro
   
   //roda toda vez que carregar a pg.
   useEffect(() => {
@@ -56,13 +59,19 @@ function App() {
 
   const totalPaginas = Math.ceil(total/por_pagina); //o math calculo p arredonda sempre p mais ou num maior.
 
+  //buscar por nome (client-side) não chama a api, só filtra o nome que já está na tela.
+  const pokemonsFiltrados = pokemons.filter((p)=>p.name.includes(busca.toLowerCase()));  
+
   return(
+
 
 
     <div className='app'>              
       
                 
       <h1>Pokedex</h1>
+    
+      <BarraPesqisa onBuscaChange={setBusca} busca={busca} />
       {carregando && <p className='mensagem'>Carregando...</p>}
       {erro && (
         <div className='mensagem erro'> 
@@ -73,7 +82,11 @@ function App() {
 
       {!carregando && !erro && (
         <>
-        <PokemonList pokemons={pokemons} onSelecionar={setSelecionado} />
+        {pokemonsFiltrados.length === 0 ? (
+          <p className="mensagem"> Nenhum Pokémon Encontrado. </p>
+        ) :(
+          <PokemonList pokemons={pokemonsFiltrados} onSelecionar={setSelecionado} />
+        )}
         <Paginacao pagina={pagina} setPagina={setPagina} totalPaginas={totalPaginas} />
         </>
       )} 

@@ -157,3 +157,16 @@ button{
   right: 10px;
   
 }
+
+/*--------------Pesquisas--------------*/
+.barra{
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+
+}
+.barra input{
+  flex: 1;
+  padding: 10px;
+  font-size: 12px;
+}
