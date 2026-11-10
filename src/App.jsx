@@ -4,7 +4,7 @@ import './App.css';
 import PokemonList from "./components/PokemonList";
 import Paginacao from './components/Paginacao';
 import PokemonModal from './components/PokemonModal';
-import BarraPesqisa from './components/BarraPesquisa';
+import BarraPesquisa from './components/BarraPesquisa';
 
 const por_pagina = 20; //quant de pókemon p/ pag (p/ mudar quant).
 
@@ -69,9 +69,9 @@ function App() {
     <div className='app'>              
       
                 
-      <h1>Pokedex</h1>
+      <h1>Pokédex</h1>
     
-      <BarraPesqisa onBuscaChange={setBusca} busca={busca} />
+      <BarraPesquisa onBuscaChange={setBusca} busca={busca} />
       {carregando && <p className='mensagem'>Carregando...</p>}
       {erro && (
         <div className='mensagem erro'> 
